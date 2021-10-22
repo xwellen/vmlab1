@@ -56,7 +56,7 @@ void backward(int n, matr_t &matr) {
 std::vector<double> answer(int n, matr_t &matr) {
     std::vector<double> ans;
     for (int i = 0; i < n; i++) {
-        printf("x%d: % f10.2", i + 1, matr[i][n] / matr[i][i]);
+        printf("x%d: % 10.2f\n", i + 1, matr[i][n] / matr[i][i]);
         ans.push_back(matr[i][n] / matr[i][i]);
     }
     return ans;
@@ -72,7 +72,7 @@ void solve(int n, matr_t &matr) {
     for (int i = 0; i < n; i++) {
         det *= matr[i][i];
     }
-    printf("det=%f\n", det);
+    printf("det=% .4f\n", det);
     if (det == 0) {
         printf("Определитель равен нулю! Единственное решение системы не существует\n");
         return;
@@ -88,6 +88,6 @@ void solve(int n, matr_t &matr) {
         for (int j = 0; j < n; j++) {
             r += answers[j] * temp_matr[i][j];
         }
-        printf("r%d: % 8.2f\n", i + 1, r - temp_matr[i][n]);
+        printf("r%d: % 10.2f\n", i + 1, r - temp_matr[i][n]);
     }
 }
